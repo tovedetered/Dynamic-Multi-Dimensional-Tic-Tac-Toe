@@ -29,8 +29,16 @@ void ASCIIMenu::drawChangeSettings() {
 }
 
 void ASCIIMenu::drawHighScores() {
+    int totalGames = 0;
+    ifstream TotalTTTG("TTTGNUM.txt");
+    if(!TotalTTTG){
+        cerr << "ERROR: TTTGNUM.txt COULD NOT BE OPENED" << endl;
+        exit(1);
+    }
+    TotalTTTG >> totalGames;
+    TotalTTTG.close();
     cout <<"***** High Scores *****" << endl
-         << "WIP" << endl;
+         << "Total 3D Tic-Tac-Toe Games: " << totalGames << endl;
 }
 
 bool ASCIIMenu::areYouSure() {

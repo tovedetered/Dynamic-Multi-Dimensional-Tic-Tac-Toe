@@ -6,6 +6,5 @@ int main() {
     ASCIIGameManager game;
     game.initialize();
     game.mainGameLoop();
-
     return 0;
 }
