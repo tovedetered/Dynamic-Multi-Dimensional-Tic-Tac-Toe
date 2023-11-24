@@ -78,7 +78,6 @@ char ASCII3DTicTacToeGame::getPChar(int x, int y, int z) {
     else{
         return ' ';
     }
-    return 0;
 }
 
 ASCII3DTicTacToeGame::~ASCII3DTicTacToeGame() {

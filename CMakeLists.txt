@@ -3,6 +3,8 @@ project(3_DTic_Tac_Toe)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_EXE_LINKER_FLAGS "-static")
+
 add_executable(3_DTic_Tac_Toe main.cpp
         TicTacToe3D.cpp
         TicTacToe3D.h
