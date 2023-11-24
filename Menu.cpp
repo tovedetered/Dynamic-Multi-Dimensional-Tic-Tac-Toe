@@ -14,7 +14,7 @@ int Menu::menuLoop() {
         switch(choice){
             case 1:
                 selectedGame = gameSelect();
-                break;
+                goto stop;
             case 2:
                 changeSettings();
                 break;
@@ -25,17 +25,18 @@ int Menu::menuLoop() {
                 return 0;
         }
     }
+    stop:
     return selectedGame;
 }
 
 int Menu::mainMenu() {
     int choice = 0;
-    bool isRunning = true;
+    bool doneRun = false;
     drawMainMenu();
-    while (isRunning) {
+    while (!doneRun) {
         choice = getInput();
         if (choice > 3 || choice < 1) {
-            isRunning = areYouSure();
+            doneRun = areYouSure();
         }
         else{
             break;
@@ -57,10 +58,10 @@ int Menu::gameSelect() {
 }
 
 void Menu::changeSettings() {
-
+    drawChangeSettings();
 }
 
 void Menu::highScores() {
-
+    drawHighScores();
 }
 

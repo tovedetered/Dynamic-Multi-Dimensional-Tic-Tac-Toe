@@ -15,4 +15,5 @@ add_executable(3_DTic_Tac_Toe main.cpp
         ASCIIMenu.cpp
         ASCIIMenu.h
         ASCIIGameManager.cpp
-        ASCIIGameManager.h)
+        ASCIIGameManager.h
+        Utilities.h)

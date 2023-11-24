@@ -7,17 +7,19 @@
 
 #include "Menu.h"
 #include "ASCIIGameManager.h"
+#include "Utilities.h"
+#include <limits>
 
 class ASCIIMenu : public Menu {
 public:
     ASCIIMenu();
 private:
-    virtual void drawMainMenu();
-    virtual void drawGameSelect();
-    virtual void drawChangeSettings();
-    virtual void drawHighScores();
-    virtual int getInput();
-    virtual bool areYouSure();
+    void drawMainMenu() override;
+    void drawGameSelect() override;
+    void drawChangeSettings() override;
+    void drawHighScores() override;
+    int getInput() override;
+    bool areYouSure() override;
 };
 
 

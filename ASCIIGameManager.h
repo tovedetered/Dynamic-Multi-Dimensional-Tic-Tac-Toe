@@ -14,9 +14,8 @@ public:
     ASCIIGameManager();
     ~ASCIIGameManager();
     void initialize() override;
-    void run3dTTT() override;
 protected:
-
+    void run3dTTT() override;
 private:
 };
 

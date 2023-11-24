@@ -18,15 +18,14 @@ public:
     GameManager();
     virtual void initialize() = 0;
     void mainGameLoop();
-    virtual void run3dTTT() = 0;
 protected:
    enum Games {
        Tic3dTacToe = 1
    };
+
+   virtual void run3dTTT() = 0;
    class Menu* menu;
    TicTacToe3D* TTT3d;
-
-
 private:
 
 };

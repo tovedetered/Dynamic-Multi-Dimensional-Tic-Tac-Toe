@@ -5,7 +5,7 @@
 int main() {
     ASCIIGameManager game;
     game.initialize();
-    game.run3dTTT();
+    game.mainGameLoop();
 
     return 0;
 }
