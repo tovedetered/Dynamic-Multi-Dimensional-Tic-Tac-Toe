@@ -22,6 +22,7 @@ void ASCIIGameManager::initialize() {
 void ASCIIGameManager::run3dTTT() {
     int result = 0;
     char choice = 0;
+    int numGames = 0;
     unsigned int x;
     unsigned int y;
     unsigned int z;
@@ -39,9 +40,35 @@ void ASCIIGameManager::run3dTTT() {
         TTT3d = new ASCII3DTicTacToeGame(x, y, z, winCond);
         result = TTT3d->runGame();
         if (result == 3) {
+            ifstream TTTGNum("TTTGNUM.txt");
+            TTTGNum >> numGames;
+            TTTGNum.close();
+
+            ofstream NumTTTG("TTTGNUM.txt", ios::trunc);
+            if(!NumTTTG){
+                cerr << "TTGNUM.txt could not be opened" << endl;
+                exit(1);
+            }
+            NumTTTG << numGames + 1;
+            NumTTTG.close();
+
+            ofstream TicTacToeLog("TicTacToe.txt", ios::app);
+            if(!TicTacToeLog){
+                cerr << "TicTacToe.txt Could not be opened" << endl;
+                exit(1);
+            }
+            TicTacToeLog << "**********" << endl
+                         << "Game " << numGames << endl
+                         << "It was a tie!" << endl
+                         << "Stats:  " << endl
+                         << "Height: " << y << endl
+                         << "Width: " << x << endl
+                         << "Depth: " << z << endl
+                         << "**********" << endl;
+            TicTacToeLog.close();
             cout << "It's A Tie!!!" << endl
                  << "Would you like to play again? (Y/N) ";
-            cin >> choice;
+            choice = getCinInput<char>();
             if (choice != 'Y' && choice != 'y') {
                 delete TTT3d;
                 return;
@@ -51,6 +78,32 @@ void ASCIIGameManager::run3dTTT() {
             }
         }
         if (result == 1 || result == 2){
+            ifstream TTTGNum("TTTGNUM.txt");
+            TTTGNum >> numGames;
+            TTTGNum.close();
+
+            ofstream NumTTTG("TTTGNUM.txt", ios::trunc);
+            if(!NumTTTG){
+                cerr << "TTGNUM.txt could not be opened" << endl;
+                exit(1);
+            }
+            NumTTTG << numGames + 1;
+            NumTTTG.close();
+
+            ofstream TicTacToeLog("TicTacToe.txt", ios::app);
+            if(!TicTacToeLog){
+                cerr << "TicTacToe.txt Could not be opened" << endl;
+                exit(1);
+            }
+            TicTacToeLog << "**********" << endl
+                         << "Game " << numGames << endl
+                         << "Winner: Player" << result << "!" << endl
+                         << "Stats:  " << endl
+                         << "Height: " << y << endl
+                         << "Width: " << x << endl
+                         << "Depth: " << z << endl
+                         << "**********" << endl;
+            TicTacToeLog.close();
             cout << "Congratulations Player " << result << "!" << endl
                  << "Would you like to play again? (Y/N) ";
             cin >> choice;

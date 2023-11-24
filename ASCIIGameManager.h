@@ -9,6 +9,9 @@
 #include "ASCIIMenu.h"
 #include "ASCII3DTicTacToeGame.h"
 
+#include <fstream>
+#include <iostream>
+
 class ASCIIGameManager : public GameManager {
 public:
     ASCIIGameManager();

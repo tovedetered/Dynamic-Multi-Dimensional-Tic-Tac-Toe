@@ -37,6 +37,9 @@ int Menu::mainMenu() {
         choice = getInput();
         if (choice > 3 || choice < 1) {
             doneRun = areYouSure();
+            if(!doneRun){
+                drawMainMenu();
+            }
         }
         else{
             break;

@@ -16,6 +16,9 @@ public:
     explicit TicTacToe3D(int numRow = 3, int numCol = 3, int numUp = 3, int inNumWin = 3);
     virtual ~TicTacToe3D();
     int runGame(); // 3=tie, 1=1, 2=2
+    int getWidth();
+    int getDepth();
+    int getHeight();
 protected:
     int* whoWhere = nullptr;
     int width;

@@ -2,6 +2,7 @@
 // Created by Spenser Kramer on 11/23/23.
 //
 
+#include <cstdlib>
 #include "TicTacToe3D.h"
 
 TicTacToe3D::TicTacToe3D(int numRow, int numCol, int numUp, int inNumWin) {
@@ -42,8 +43,16 @@ int TicTacToe3D::runGame() {
             }
         }
         if(i == totalSize){
+            result = whoWin();
+            if(result != 0){
+                gameEnd = true;
+                whoWon = player;
+            }
+            else{
+                return 3;
+            }
             gameEnd = true;
-            return whoWon = 3;
+            return whoWon;
         }
     }
     return whoWon;
@@ -101,7 +110,78 @@ int TicTacToe3D::whoWin() { //non-active player cannot win
     else{
         counter = 0;
     }
-    //need Diagonal and anti-diagonal and 3d diagonal
+    //need 3d diagonals
+    int y = mRy;
+    int x = mRx;
+    //find upper anti-diagonal bound
+    while(true){
+        if(y == 0 || x == 0){
+            break;
+        }
+        else if(y > height - 1 || x > width - 1){
+            exit(2);
+        }
+        y--;
+        x--;
+    }
+
+    while(true){
+        if(whoWhere[access(x, y, mRz)] == player){
+            counter ++;
+        }
+        else{
+            counter = 0;
+        }
+        if(y == height - 1 || x == width - 1){
+            break;
+        }
+
+        x++;
+        y++;
+    }
+    if(counter >= numWin){
+        return 1;
+    }
+    else{
+        counter = 0;
+        y = mRy;
+        x = mRx;
+    }
+    //find upper diagonal bound
+    while(true){
+        if(y == 0 || x == width - 1){
+            break;
+        }
+        else if(y > height - 1 || x > width - 1){
+            exit(2);
+        }
+        y--;
+        x++;
+    }
+
+    while(true){
+        if(whoWhere[access(x, y, mRz)] == player){
+            counter ++;
+        }
+        else{
+            counter = 0;
+        }
+        if(y == height || x == 0){
+            break;
+        }
+
+        x--;
+        y++;
+    }
+    if(counter >= numWin){
+        return 1;
+    }
+    else{
+        counter = 0;
+        y = mRy;
+        x = mRx;
+    }
+
     return 0;
 }
 
@@ -126,4 +206,16 @@ int TicTacToe3D::access(int x, int y, int z) const {
 
 TicTacToe3D::~TicTacToe3D() {
 
+}
+
+int TicTacToe3D::getWidth() {
+    return width;
+}
+
+int TicTacToe3D::getDepth() {
+    return depth;
+}
+
+int TicTacToe3D::getHeight() {
+    return height;
 }
