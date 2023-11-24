@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(3_DTic_Tac_Toe main.cpp
         TicTacToe3D.cpp
-        TicTacToe3D.h)
+        TicTacToe3D.h
+        ASCIIGame.cpp
+        ASCIIGame.h)
