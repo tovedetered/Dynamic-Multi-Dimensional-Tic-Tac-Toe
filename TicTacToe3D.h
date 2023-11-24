@@ -13,9 +13,9 @@ struct xyz{
 
 class TicTacToe3D { //Will just contain logic. ie, nums stored as ints, where other program can display diff
 public:
-    explicit TicTacToe3D(int numRow = 3, int numCol = 3, int numUp = 3, int innumWin = 3);
-    ~TicTacToe3D();
-    int runGame();
+    explicit TicTacToe3D(int numRow = 3, int numCol = 3, int numUp = 3, int inNumWin = 3);
+    virtual ~TicTacToe3D();
+    int runGame(); // 3=tie, 1=1, 2=2
 protected:
     int* whoWhere = nullptr;
     int width;

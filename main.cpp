@@ -1,9 +1,11 @@
 #include <iostream>
-#include "ASCIIGame.h"
+#include "ASCII3DTicTacToeGame.h"
+#include "ASCIIGameManager.h"
 
 int main() {
-    ASCIIGame game(3,3,1);
-    game.runGame();
+    ASCIIGameManager game;
+    game.initialize();
+    game.run3dTTT();
 
     return 0;
 }

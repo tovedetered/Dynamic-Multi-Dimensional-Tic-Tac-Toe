@@ -2,14 +2,14 @@
 // Created by Spenser Kramer on 11/24/23.
 //
 
-#include "ASCIIGame.h"
+#include "ASCII3DTicTacToeGame.h"
 
-ASCIIGame::ASCIIGame(int numRow, int numCol, int numUp, int inNumWin)
+ASCII3DTicTacToeGame::ASCII3DTicTacToeGame(int numRow, int numCol, int numUp, int inNumWin)
         : TicTacToe3D(numRow, numCol, numUp, inNumWin) {
 
 }
 
-void ASCIIGame::drawBoard() {
+void ASCII3DTicTacToeGame::drawBoard() {
     for(int up = 0; up < depth; up++){
         cout << "***** Board " << up+1 << " *****";
         for(int row = 0; row < height; row++){
@@ -32,7 +32,7 @@ void ASCIIGame::drawBoard() {
 
 }
 
-xyz ASCIIGame::getInput(int p) {
+xyz ASCII3DTicTacToeGame::getInput(int p) {
     xyz input {};
     int x;
     int y;
@@ -67,7 +67,7 @@ xyz ASCIIGame::getInput(int p) {
     return input;
 }
 
-char ASCIIGame::getPChar(int x, int y, int z) {
+char ASCII3DTicTacToeGame::getPChar(int x, int y, int z) {
     int playerAtSpot = whoWhere[access(x,y,z)];
     if(playerAtSpot == 1){
         return p1;
@@ -79,5 +79,9 @@ char ASCIIGame::getPChar(int x, int y, int z) {
         return ' ';
     }
     return 0;
+}
+
+ASCII3DTicTacToeGame::~ASCII3DTicTacToeGame() {
+    delete whoWhere;
 }
 

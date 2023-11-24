@@ -125,5 +125,5 @@ int TicTacToe3D::access(int x, int y, int z) const {
 }
 
 TicTacToe3D::~TicTacToe3D() {
-    delete whoWhere;
+
 }

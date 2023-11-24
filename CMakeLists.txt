@@ -6,5 +6,13 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(3_DTic_Tac_Toe main.cpp
         TicTacToe3D.cpp
         TicTacToe3D.h
-        ASCIIGame.cpp
-        ASCIIGame.h)
+        ASCII3DTicTacToeGame.cpp
+        ASCII3DTicTacToeGame.h
+        GameManager.cpp
+        GameManager.h
+        Menu.cpp
+        Menu.h
+        ASCIIMenu.cpp
+        ASCIIMenu.h
+        ASCIIGameManager.cpp
+        ASCIIGameManager.h)
