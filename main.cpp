@@ -1,6 +1,9 @@
 #include <iostream>
+#include "ASCIIGame.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    ASCIIGame game(3,3,1);
+    game.runGame();
+
     return 0;
 }

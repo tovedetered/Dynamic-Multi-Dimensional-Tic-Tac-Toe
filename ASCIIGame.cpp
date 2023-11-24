@@ -10,6 +10,25 @@ ASCIIGame::ASCIIGame(int numRow, int numCol, int numUp, int inNumWin)
 }
 
 void ASCIIGame::drawBoard() {
+    for(int up = 0; up < depth; up++){
+        cout << "***** Board " << up+1 << " *****";
+        for(int row = 0; row < height; row++){
+            cout << endl;
+            if(row != 0) {
+                for (int i = 0; i < (width * 2) - 1; i++) {
+                    cout << " -";
+                }
+                cout << endl;
+            }
+            for(int column = 0; column < width; column ++){
+                cout << " " << getPChar(column, row, up) << " ";
+                if(column != width-1){
+                    cout << "|";
+                }
+            }
+        }
+        cout << endl;
+    }
 
 }
 
@@ -46,5 +65,19 @@ xyz ASCIIGame::getInput(int p) {
     }
     input = {x, y, z};
     return input;
+}
+
+char ASCIIGame::getPChar(int x, int y, int z) {
+    int playerAtSpot = whoWhere[access(x,y,z)];
+    if(playerAtSpot == 1){
+        return p1;
+    }
+    else if(playerAtSpot == 2){
+        return p2;
+    }
+    else{
+        return ' ';
+    }
+    return 0;
 }
 

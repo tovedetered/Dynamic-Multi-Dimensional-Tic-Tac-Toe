@@ -23,6 +23,7 @@ int TicTacToe3D::runGame() {
     whoWon = 0;
     player = 0;
     bool gameEnd = false;
+    drawBoard();
     for(int i = 1; !gameEnd; i++){
         if(i%2 == 1){
             player = 1;
@@ -32,7 +33,8 @@ int TicTacToe3D::runGame() {
             player = 2;
             playerTurn(player);
         }
-        if(i/2 > numWin-1){
+        if(i/2 > numWin-2){
+
             result = whoWin();
             if(result != 0){
                 gameEnd = true;
