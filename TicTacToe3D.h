@@ -37,6 +37,7 @@ private:
     int player;
     void playerTurn(int p);
     void updateBoard(xyz pin, int p);
+    int depthWin();
 };
 
 

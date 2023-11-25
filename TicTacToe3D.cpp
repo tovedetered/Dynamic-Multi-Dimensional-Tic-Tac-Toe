@@ -182,6 +182,158 @@ int TicTacToe3D::whoWin() { //non-active player cannot win
         x = mRx;
     }
 
+    int dWin = depthWin();
+
+    return dWin;
+}
+
+int TicTacToe3D::depthWin() {
+    int mRx = mostRecentMove.x;
+    int mRy = mostRecentMove.y;
+    int mRz = mostRecentMove.z;
+    int counter = 0;
+
+    //y const
+    int x = mRx;
+    int y = mRy;
+    int z = mRz;
+
+    while(true){
+        if(x == 0 || z == 0){
+            break;
+        }
+        else if(x < 0 || z < 0){
+            exit(1);
+        }
+        z--;
+        x--;
+    }
+    while(true){
+        if(whoWhere[access(x, y, z)] == player){
+            counter ++;
+        }
+        else{
+            counter = 0;
+        }
+        if(x == width - 1 || z == depth - 1){
+            break;
+        }
+        x++;
+        z++;
+    }
+    if(counter >= numWin){
+        return 1;
+    }
+    else{
+        counter = 0;
+        z = mRz;
+        x = mRx;
+    }
+    //x const
+    while(true){
+        if(y == 0 || z == 0){
+            break;
+        }
+        else if(x < 0 || z < 0){
+            exit(1);
+        }
+        z--;
+        y--;
+    }
+    while(true){
+        if(whoWhere[access(x, y, z)] == player){
+            counter ++;
+        }
+        else{
+            counter = 0;
+        }
+        if(y == height - 1 || z == depth - 1){
+            break;
+        }
+        y++;
+        z++;
+    }
+    if(counter >= numWin){
+        return 1;
+    }
+    else{
+        counter = 0;
+        z = mRz;
+        y = mRy;
+    }
+
+    //anti depth diagonal
+    while(true){
+        if(x == 0 || z == 0 || y == height - 1){
+            break;
+        }
+        else if(x < 0 || z < 0 || y > height - 1){
+            exit(1);
+        }
+        z--;
+        x--;
+        y++;
+    }
+    while(true){
+        if(x == width  || z < 0 || y < 0){
+            break;
+        }
+        if(whoWhere[access(x, y, z)] == player){
+            counter ++;
+        }
+        else{
+            counter = 0;
+        }
+        x++;
+        z--;
+        y--;
+    }
+    if(counter >= numWin){
+        return 1;
+    }
+    else{
+        counter = 0;
+        z = mRz;
+        x = mRx;
+        y = mRy;
+    }
+    //depth Diagonal
+
+    while(true){
+        if(x == 0 || z == 0 || y == 0){
+            break;
+        }
+        else if(x < 0 || z < 0 || y < 0){
+            exit(1);
+        }
+        z--;
+        x--;
+        y--;
+    }
+    while(true){
+        if(x == width  || z == depth || y == height){
+            break;
+        }
+        if(whoWhere[access(x, y, z)] == player){
+            counter ++;
+        }
+        else{
+            counter = 0;
+        }
+        x++;
+        z++;
+        y++;
+    }
+    if(counter >= numWin){
+        return 1;
+    }
+    else{
+        counter = 0;
+        z = mRz;
+        x = mRx;
+        y = mRy;
+    }
+
     return 0;
 }
 
