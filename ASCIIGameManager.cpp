@@ -20,7 +20,7 @@ void ASCIIGameManager::initialize() {
 }
 
 void ASCIIGameManager::run3dTTT() {
-    int result = 0;
+    int result;
     char choice = 0;
     int numGames = 0;
     unsigned int x;

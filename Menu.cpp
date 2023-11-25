@@ -7,13 +7,16 @@
 Menu::Menu() = default;
 
 int Menu::menuLoop() {
-    int choice = 0;
-    int selectedGame = 0;
+    int choice;
+    int selectedGame;
     while(true){
         choice = mainMenu();
         switch(choice){
             case 1:
                 selectedGame = gameSelect();
+                if(selectedGame == 0) {
+                    break;
+                }
                 goto stop;
             case 2:
                 changeSettings();
@@ -49,12 +52,15 @@ int Menu::mainMenu() {
 }
 
 int Menu::gameSelect() {
-    int choice = 0;
+    int choice;
     drawGameSelect();
     while(true){
         choice = getInput();
         if (choice <= totalGames && choice >0){
             break;
+        }
+        else{
+            return 0;
         }
     }
     return choice;

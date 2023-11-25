@@ -5,6 +5,8 @@
 #ifndef INC_3_DTIC_TAC_TOE_TICTACTOE3D_H
 #define INC_3_DTIC_TAC_TOE_TICTACTOE3D_H
 
+#include "Utilities.h"
+
 struct xyz{
     int x;
     int y;
@@ -16,9 +18,6 @@ public:
     explicit TicTacToe3D(int numRow = 3, int numCol = 3, int numUp = 3, int inNumWin = 3);
     virtual ~TicTacToe3D();
     int runGame(); // 3=tie, 1=1, 2=2
-    int getWidth();
-    int getDepth();
-    int getHeight();
 protected:
     int* whoWhere = nullptr;
     int width;

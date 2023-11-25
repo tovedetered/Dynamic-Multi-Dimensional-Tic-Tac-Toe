@@ -359,15 +359,3 @@ int TicTacToe3D::access(int x, int y, int z) const {
 TicTacToe3D::~TicTacToe3D() {
 
 }
-
-int TicTacToe3D::getWidth() {
-    return width;
-}
-
-int TicTacToe3D::getDepth() {
-    return depth;
-}
-
-int TicTacToe3D::getHeight() {
-    return height;
-}

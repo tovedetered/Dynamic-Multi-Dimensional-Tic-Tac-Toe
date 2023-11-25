@@ -33,7 +33,6 @@ void ASCII3DTicTacToeGame::drawBoard() {
 }
 
 xyz ASCII3DTicTacToeGame::getInput(int p) {
-    xyz input {};
     int x;
     int y;
     int z;
@@ -41,13 +40,13 @@ xyz ASCII3DTicTacToeGame::getInput(int p) {
         cout << "It's Player " << p << "'s Move!" << endl
              << "Please Input Where you would like to Go!" << endl
              << "1st. x coordinate (what colum): ";
-        cin >> x;
+        x = getCinInput<int>();
         x -=1;
         cout << "2nd. y coordinate (what Row): ";
-        cin >> y;
+        y = getCinInput<int>();
         y -=1;
         cout << "3rd. z coordinate (what Board): ";
-        cin >> z;
+        z = getCinInput<int>();
         z -=1;
         if(x > width || y > height || z > depth ||
            x < 0 || y < 0 || z < 0){
@@ -63,8 +62,7 @@ xyz ASCII3DTicTacToeGame::getInput(int p) {
             }
         }
     }
-    input = {x, y, z};
-    return input;
+    return {x, y, z};
 }
 
 char ASCII3DTicTacToeGame::getPChar(int x, int y, int z) {

@@ -11,7 +11,7 @@ GameManager::GameManager() {
 
 
 void GameManager::mainGameLoop() {
-    int choice = 0;
+    int choice;
     while(true){
         choice = menu->menuLoop();
         if(choice == 0){
