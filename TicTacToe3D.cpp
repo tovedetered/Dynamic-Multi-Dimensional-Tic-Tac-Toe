@@ -356,6 +356,4 @@ int TicTacToe3D::access(int x, int y, int z) const {
     return (x+ width *(y+depth*z));
 }
 
-TicTacToe3D::~TicTacToe3D() {
-
-}
+TicTacToe3D::~TicTacToe3D() = default;

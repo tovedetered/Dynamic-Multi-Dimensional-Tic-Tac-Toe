@@ -48,7 +48,7 @@ xyz ASCII3DTicTacToeGame::getInput(int p) {
         cout << "3rd. z coordinate (what Board): ";
         z = getCinInput<int>();
         z -=1;
-        if(x > width || y > height || z > depth ||
+        if(x > width - 1 || y > height - 1 || z > depth - 1 ||
            x < 0 || y < 0 || z < 0){
             cout << "ERROR coordinates outside of playable area, please try again"
                  << endl;
