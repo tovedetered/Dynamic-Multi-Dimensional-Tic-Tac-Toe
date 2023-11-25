@@ -24,6 +24,9 @@ int Menu::menuLoop() {
             case 3:
                 highScores();
                 break;
+            case 4:
+                credits();
+                break;
             default:
                 return 0;
         }
@@ -38,7 +41,7 @@ int Menu::mainMenu() {
     drawMainMenu();
     while (!doneRun) {
         choice = getInput();
-        if (choice > 3 || choice < 1) {
+        if (choice > 4 || choice < 1) {
             doneRun = areYouSure();
             if(!doneRun){
                 drawMainMenu();
@@ -72,5 +75,9 @@ void Menu::changeSettings() {
 
 void Menu::highScores() {
     drawHighScores();
+}
+
+void Menu::credits() {
+    drawCredits();
 }
 

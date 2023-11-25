@@ -18,6 +18,7 @@ private:
     void drawGameSelect() override;
     void drawChangeSettings() override;
     void drawHighScores() override;
+    void drawCredits() override;
     int getInput() override;
     bool areYouSure() override;
 };

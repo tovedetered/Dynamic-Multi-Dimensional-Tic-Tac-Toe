@@ -11,7 +11,8 @@ void ASCIIMenu::drawMainMenu() {
          << "1. Select Game" << endl
          << "2. Settings" << endl
          << "3. HighScores" << endl
-         << "4. Quit Game" << endl
+         << "4. Credits" << endl
+         << "5. Quit" << endl
          << "Input Selection: ";
 
 }
@@ -55,4 +56,11 @@ int ASCIIMenu::getInput() {
     int choice;
     choice = getCinInput<int>();
     return choice;
+}
+
+void ASCIIMenu::drawCredits() {
+    cout << "***** Credits *****" << endl
+         << "Created By Spenser J. Kramer" << endl
+         << "In C++" << endl;
+
 }

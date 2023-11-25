@@ -20,6 +20,8 @@ protected:
     virtual void drawChangeSettings() = 0;
     void highScores();
     virtual void drawHighScores() = 0;
+    void credits();
+    virtual void drawCredits() = 0;
     virtual int getInput() = 0;
     virtual bool areYouSure() = 0;
     int totalGames = 1;

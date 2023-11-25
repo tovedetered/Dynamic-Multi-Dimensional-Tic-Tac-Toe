@@ -97,7 +97,7 @@ void ASCIIGameManager::run3dTTT() {
             }
             TicTacToeLog << "**********" << endl
                          << "Game " << numGames << endl
-                         << "Winner: Player" << result << "!" << endl
+                         << "Winner: Player " << result << "!" << endl
                          << "Stats:  " << endl
                          << "Height: " << y << endl
                          << "Width: " << x << endl
